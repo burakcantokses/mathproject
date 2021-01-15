@@ -1,0 +1,121 @@
+package kombinasyon;
+
+import java.util.Scanner;
+
+import kombinasyon.utils.OpenWebsite;
+
+/**
+ * @author burak
+ *
+ * @time 15.Oca.2021 16:50:46
+ */
+public class Main {
+	public static Scanner input = new Scanner(System.in);
+	public static boolean check = false;
+
+	public static void main(String[] args) {
+		String ad,soyad,mod;
+		if (check == false) { 
+		System.out.println("Ýsminizi Girin.");
+		ad = input.nextLine();
+		System.out.println("Soyadýnýzý Girin.");
+		soyad = input.nextLine();
+		check = true;	
+		System.out.printf("\nKombinasyon Konu Anlatýmý, Soru Çözümü Sihirbazýna Hoþgeldin %s %s !", ad,soyad);
+		}
+		System.out.println("\n\t------------------------------------------------------------------------------------");
+        System.out.println("\tSorularýn Cevaplarýný Görmek Ýçin ['M'] Tuþuna Basýlýr.");
+        System.out.println("\tÞýklarý Ýþaretlemek Ýçin { ['A'], ['B'], ['C'], ['D'], ['E'] } Tuþlarý Kullanýlýr.");
+        System.out.println("\tSorunun Resimli Çözümünü Görmek Ýçin ['R'] Tuþuna Basýlýr.");
+        System.out.println("\t------------------------------------------------------------------------------------");
+        System.out.println("\n");
+        System.out.println("Lütfen Ne Yapmak Ýstediðinizi Seçin.");
+        System.out.println("Konu Anlatýmý Ýçin ['K'], Soru Çözümü Ýçin ['S'] Tuþuna Basýn.");
+        mod = input.nextLine();
+        while (!(mod.equals("K") || mod.equals("k") || mod.equals("S") || mod.equals("s"))) {
+        	System.out.println("Lütfen Geçerli Bir Harf Giriþi Yapýnýz.");	
+            System.out.println("Konu Anlatýmý Ýçin ['K'], Soru Çözümü Ýçin ['S'] Tuþuna Basýn.");
+            mod = input.nextLine();
+		}
+        if (mod.equals("k") || mod.equals("K")) {
+        	konuAnlat(0);
+        }else if (mod.equals("S") || mod.equals("s")) {
+        	soruCoz(0);
+        }else {
+            while (!(mod.equals("K") || mod.equals("k") || mod.equals("S") || mod.equals("s"))) {
+            	System.out.println("Lütfen Geçerli Bir Harf Giriþi Yapýnýz.");	
+                System.out.println("Konu Anlatýmý Ýçin ['K'], Soru Çözümü Ýçin ['S'] Tuþuna Basýn.");
+                mod = input.nextLine();
+    		}
+        }
+	}
+	
+	public static void konuAnlat(int id) {
+		clearScreen();
+		if (id == 0) {
+			String num,back;
+			String url1 = "https://i.hizliresim.com/x1XWVk.jpg";
+			String url2 = "https://i.hizliresim.com/2bl4te.jpg";
+			String url3 = "https://i.hizliresim.com/yJ3Lz9.jpg ";
+			System.out.println("Kombinasyon Konu Anlatýmý Bölümüne Hoþgeldiniz.");
+			System.out.println("1) Kombinasyon Nasýl Gösterilir?");
+			System.out.println("2) Kombinasyon Baþka Nasýl Gösterilir?");
+			System.out.println("3) Kombinasyon Kurallarý Nedir?");
+			System.out.println("Yukarýdaki Konu Anlatýmý Seçeneklerinden Birini Seçip Baþýndaki Numarayý Konsola Tuþlayýn.");
+			num = input.nextLine();
+			while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
+				System.out.println("Lütfen Geçerli Bir Numara Giriniz.");
+				System.out.println("1) Kombinasyon Nasýl Gösterilir?");
+				System.out.println("2) Kombinasyon Baþka Nasýl Gösterilir?");
+				System.out.println("3) Kombinasyon Kurallarý Nedir?");
+				System.out.println("Yukarýdaki Konu Anlatýmý Seçeneklerinden Birini Seçip Baþýndaki Numarayý Konsola Tuþlayýn.");
+				num = input.nextLine();
+			}
+			
+			if (num.equals("1")) {
+				System.out.println(num + " Numaralý Anlatýma Yönlendiriliyorsun.");
+				OpenWebsite.openLink(url1);
+			}else if (num.equals("2")) {
+				OpenWebsite.openLink(url2);
+			}else if (num.equals("3")) {
+				OpenWebsite.openLink(url3);
+			}else {
+				System.out.println("1) Kombinasyon Nasýl Gösterilir?");
+				System.out.println("2) Kombinasyon Baþka Nasýl Gösterilir?");
+				System.out.println("3) Kombinasyon Kurallarý Nedir?");
+				System.out.println("Yukarýdaki Konu Anlatýmý Seçeneklerinden Birini Seçip Baþýndaki Numarayý Konsola Tuþlayýn.");
+				num = input.nextLine();
+				while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
+					System.out.println("Lütfen Geçerli Bir Numara Giriniz.");
+					System.out.println("1) Kombinasyon Nasýl Gösterilir?");
+					System.out.println("2) Kombinasyon Baþka Nasýl Gösterilir?");
+					System.out.println("3) Kombinasyon Kurallarý Nedir?");
+					System.out.println("Yukarýdaki Konu Anlatýmý Seçeneklerinden Birini Seçip Baþýndaki Numarayý Konsola Tuþlayýn.");
+					num = input.nextLine();
+				}
+			}
+			System.out.println("Geri Dönmek Ýçin ['G'] Tuþuna Basýn. Çýkmak Ýçin ['G'] Dýþýnda Herhangi Bir Tuþa Basýn.");
+			back = input.nextLine();
+			if (back.equals("G") || back.equals("g")) {
+				Main.main(null);
+			}else {
+				System.out.println("Program Kapatýldý.");
+				System.exit(0);
+			}
+		}
+	}
+
+	public static void soruCoz(int id) {
+		
+	}
+	
+	/*
+	 * Util Methods
+	 */
+	public static void clearScreen() {  
+		for (int i = 0; i < 100; i++) {
+			System.out.println("");
+		}
+	}  
+	
+}
